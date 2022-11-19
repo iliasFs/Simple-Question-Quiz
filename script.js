@@ -10,8 +10,30 @@ form.addEventListener("submit", (event) => {
     return item.checked == true;
   });
 
-  let rightAnswers = checkedAnswers.filter((item) => item.value == "true");
-  let wrongAnswers = checkedAnswers.filter((item) => item.value == "false");
-  rightAnswers.forEach((item) => questions.classList.add("correct"));
-  console.log(rightAnswers);
+  checkedAnswers.forEach((answer) => {
+    const isCorrect = answer.value === "true";
+
+    if (isCorrect) {
+      answer.closest(".question-item").classList.add("correct");
+      answer.closest(".question-item").classList.remove("incorrect");
+    } else {
+      answer.closest(".question-item").classList.add("incorrect");
+      answer.closest(".question-item").classList.remove("correct");
+    }
+  });
+  rightAnswers = checkedAnswers.filter((answer) => answer.value === "true");
+
+  
+   function showAlert(){
+    
+   }
+  
+  if(rightAnswers.length === 3){
+    alert.style.display = "block";
+}
+
+setTimeout(()=>{
+  alert.style.display = 'none'
+  },1000)
+
 });
