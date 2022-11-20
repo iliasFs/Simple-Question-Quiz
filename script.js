@@ -10,6 +10,12 @@ form.addEventListener("submit", (event) => {
     return item.checked == true;
   });
 
+  questions.forEach(question=>{
+
+    question.classList.add('incorrect')
+    question.classList.remove('correct')
+  })
+
   checkedAnswers.forEach((answer) => {
     const isCorrect = answer.value === "true";
 
@@ -34,6 +40,6 @@ form.addEventListener("submit", (event) => {
 
 setTimeout(()=>{
   alert.style.display = 'none'
-  },1000)
+  },2000)
 
 });
